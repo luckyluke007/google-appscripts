@@ -12,8 +12,9 @@ function processApproval(event) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var s = event.source.getActiveSheet();
   var r = event.source.getActiveRange();
- 
-  if(s.getName() =="CPF" && r.getColumn() == 2) {
+  
+  // Main Sheet Name - Set Yes or No on column too or assign column you want
+  if(s.getName() =="Main Sheet Name Goes Here" && r.getColumn() == 2) {
     var targetSheetName = null;
     var message = null;
     
