@@ -39,16 +39,16 @@ function processApproval(event) {
       var targetRange = targetSheet.getRange(targetSheet.getLastRow()+1,1);
       var numColumns = s.getLastColumn();
       
-      // Apply message Approval or Rejected (Row 24 or change row #)
+      // Apply message (Message set row 24)
       s.getRange(row, 1, 1, numColumns).moveTo(targetRange);
       targetSheet.getRange(targetRange.getRow(), 24).setValue(message);
 
-      // Send email notification - get email address (row 22 or change row #)
+      // Send email notification - (Email is set row 22)
       var email = targetSheet.getRange(targetRange.getRow(), 22).getValue();
       var subject = "Chancellor's Participation Request";
       MailApp.sendEmail(email, subject, "",{htmlBody:message});
 
-      // Mark row as sent - status email sent (row 23 or change row #)
+      // Mark row as sent - status email sent (Set row 23)
       targetSheet.getRange(targetRange.getRow(), 23).setValue(EMAIL_SENT);
 
       // Make sure the cell is updated right away in case the script is interrupted
