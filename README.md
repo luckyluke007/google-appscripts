@@ -6,7 +6,7 @@ This google script is an Approval and Reject with email notifications. Special t
 
 **Note**: You need to change the column numbers for Email Message, Email of the user, and Email notification "Sent" post after email is sent.
 	
-- Sheet 1 - Column 2 enter **Yes** or **No** in the last row. Move row down to bottom to approve. 
+- Create a **Sheet** with column **2** enter **Yes** or **No** in the last row. Move row down to bottom to approve. 
 - **Yes** moves the row to **APPROVED** sheet
 - **No** moves the row to **REJECTED**
 - Then it will email notification to user (you must collect user email to do this)
