@@ -14,7 +14,7 @@ This google script is an Approval and Reject with email notifications. Special t
 
 ### Sorting by date by SheetName — sorting-by-date-bysheetname.md
 
-Sort rows by column assign - Make sure you set Timer on your screen onOpen...
+Sort rows by column assign - Make sure you set script **Trigger** > **onOpen**.
 
 - Date should be column 1 (You can change to which column you want to sort)
 - tableRange rows content
