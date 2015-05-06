@@ -1,8 +1,8 @@
-# Google Appscripts
+# Google App Scripts
 
 ### Approval and Reject with Email Notification — approval-reject-sheets.md
 
-This google script is an Approval and Reject with email notifications. Special thanks [Maksim Rogov](http://www.nullriver.com) cleaning up my code.
+This google App Script is an Approval and Reject with email notifications. Special thanks [Maksim Rogov](http://www.nullriver.com) cleaning up my code.
 
 **Note**: You need to change the column numbers for Email Message, Email of the user, and Email notification "Sent" post after email is sent.
 	
