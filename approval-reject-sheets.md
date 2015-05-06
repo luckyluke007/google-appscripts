@@ -4,8 +4,8 @@
 
 ```
 //Approved
-var APPROVED = '<p>Your request for the Chancellor to participate in your upcoming event has been approved.</p><p>Please complete the <a href="http://chancellor.ucsc.edu/files/chancellor_briefing_template.zip">Briefing Form</a> with all details on the event. <span style="color:red">Note: The Briefing Form must be submitted to Margaret McGuire one week before the event. To submit Briefing Form <a href="https://ucsc.wufoo.com/forms/chancellors-event-briefing-packet/">click here</a>.</span></p>';
-var REJECTED = '<p>Thank you for completing a Chancellor’s Participation Form for your upcoming event.  Unfortunately, schedules do not permit the Chancellor to participate.  You might consider asking other campus leadership to attend.</p><p>Thank you again for contacting us.</p>';
+var APPROVED = '<p>Approved Message</p>';
+var REJECTED = '<p>Rejected Message</p>';
 var EMAIL_SENT = "Sent";
 
 function processApproval(event) {
@@ -14,7 +14,7 @@ function processApproval(event) {
   var r = event.source.getActiveRange();
   
   // Main Sheet Name - Set Yes or No on column too or assign column you want
-  if(s.getName() =="Main Sheet Name Goes Here" && r.getColumn() == 2) {
+  if(s.getName() =="Sheet1" && r.getColumn() == 2) {
     var targetSheetName = null;
     var message = null;
     
