@@ -1,6 +1,6 @@
 # Google Appscripts
 
-### approval-reject-sheets.md
+### Approval and Reject with Email Notification — approval-reject-sheets.md
 
 This google script is an Approval and Reject with email notifications. Special thanks [Maksim Rogov](http://www.nullriver.com) cleaning up my code.
 
@@ -12,7 +12,7 @@ This google script is an Approval and Reject with email notifications. Special t
 - Then it will email notification to user (you must collect user email to do this)
 - Once the email sent, "Sent" will be posted in the colummn 23
 
-### Sorting by date - by SheetName
+### Sorting by date by SheetName — sorting-by-date-bysheetname.md
 
 Sort rows by column assign - Make sure you set Timer on your screen onOpen...
 
