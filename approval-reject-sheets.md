@@ -3,7 +3,7 @@
 - Yes/No column move row to Approval or Reject sheet and sent out email notifications
 
 ```
-//Approved
+//Moved row data base on column B answer Yes or No
 var APPROVED = '<p>Approved Message</p>';
 var REJECTED = '<p>Rejected Message</p>';
 var EMAIL_SENT = "Sent";
@@ -12,19 +12,20 @@ function processApproval(event) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var s = event.source.getActiveSheet();
   var r = event.source.getActiveRange();
-  
-  // Main Sheet Name - Set Yes or No on column too or assign column you want
-  if(s.getName() =="Sheet1" && r.getColumn() == 2) {
+ 
+  if(s.getName() =="CPF" && r.getColumn() == 2) {
     var targetSheetName = null;
     var message = null;
     
     switch(r.getValue()) {
+      case "yes":
       case "Yes":
       case "YES":
         targetSheetName = "Approved";
         message = APPROVED;
         break;
         
+      case "no":
       case "No":
       case "NO":
         targetSheetName = "Rejected";
@@ -39,16 +40,16 @@ function processApproval(event) {
       var targetRange = targetSheet.getRange(targetSheet.getLastRow()+1,1);
       var numColumns = s.getLastColumn();
       
-      // Apply message (Message set row 24)
       s.getRange(row, 1, 1, numColumns).moveTo(targetRange);
       targetSheet.getRange(targetRange.getRow(), 24).setValue(message);
 
-      // Send email notification - (Email is set row 22)
+      // Send email notification
       var email = targetSheet.getRange(targetRange.getRow(), 22).getValue();
-      var subject = "Chancellor's Participation Request";
-      MailApp.sendEmail(email, subject, "",{htmlBody:message});
+      var subject = targetSheet.getRange(targetRange.getRow(), 3).getValue();
+      var summary = targetSheet.getRange(targetRange.getRow(), 25).getValue();
+      MailApp.sendEmail(email, subject, "",{htmlBody:message + summary});
 
-      // Mark row as sent - status email sent (Set row 23)
+      // Mark row as sent
       targetSheet.getRange(targetRange.getRow(), 23).setValue(EMAIL_SENT);
 
       // Make sure the cell is updated right away in case the script is interrupted
